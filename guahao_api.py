@@ -151,11 +151,12 @@ def auto_guaho():
     # keid = '%B8%DF%D1%AA%D1%B9%BF%C6'
     year = '2015'
     month = '08'
-    day = 18
+    day = 01
     # feiyong = '14'
     # goodat = '萎缩性胃炎'
-    feiyong = '5'
-    goodat = ''
+
+    feiyong = '14'
+    goodat = '胃炎'
 
 
     starttime = datetime.datetime.now()
