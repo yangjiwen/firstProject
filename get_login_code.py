@@ -32,6 +32,7 @@ def GetLoginCodeImg(cookie_file,code_img,proxy):
 	ch.setopt(ch.WRITEFUNCTION, buffer_con.write)
 	ch.setopt(ch.COOKIEFILE, cookie_file)
 	ch.setopt(ch.COOKIEJAR, cookie_file)	#保存ｃｏｏｋｉｅ
+	ch.setopt(ch.TIMEOUT,2)
 	#ch.setopt(ch.PROXY, 'http://125.46.100.198:9999')	#设置代理服务器
 	if proxy : ch.setopt(ch.PROXY, proxy)	#设置代理服务器
 	ch.perform()

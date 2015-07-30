@@ -30,6 +30,7 @@ def spider(spider_url,cookie_file,referer_url,proxy):
 	ch.setopt(ch.COOKIEFILE, cookie_file)
 	ch.setopt(ch.COOKIEJAR, cookie_file)	#保存ｃｏｏｋｉｅ
 	#ch.setopt(ch.PROXY, 'http://125.46.100.198:9999')	#设置代理服务器
+	ch.setopt(ch.TIMEOUT,2)
 	if proxy : ch.setopt(ch.PROXY, proxy)	#设置代理服务器
 	ch.perform()
 	html=buffer_con.getvalue()

@@ -13,6 +13,7 @@ import cancel
 import datetime
 # from urllib import urlencode,quote,quote_plus
 import re
+import time
 #注册时检查身份证是否已经在北京挂号官网注册过
 #传参：idcard_num:身份证号
 #      cookie_file:cookie文件
@@ -151,19 +152,27 @@ def auto_guaho():
     # keid = '%B8%DF%D1%AA%D1%B9%BF%C6'
     year = '2015'
     month = '08'
-    day = 01
+    day = 18
     # feiyong = '14'
     # goodat = '萎缩性胃炎'
+    # keid = '11050111'
+    # hpid=12222
+    feiyong = '5'
+    goodat = ''
+    start_hour = 10
+    start_minute = 4
+    start_second = 50
 
-    feiyong = '14'
-    goodat = '胃炎'
 
-
-    starttime = datetime.datetime.now()
     while True:
         proxy = False
         cookie_file = 'cookie.txt'
-        api_login('刘美莲','352224196811052527',cookie_file,'login_code_img.gif',proxy)
+        try:
+            login_info = api_login('刘美莲','352224196811052527',cookie_file,'login_code_img.gif',proxy)
+            print login_info
+        except:
+            print "login_time_out"
+            continue
         referer_url = "http://www.bjguahao.gov.cn/comm/yyks-%s.html"%hpid
         # year = '2015'
         # month = '07'
@@ -171,15 +180,35 @@ def auto_guaho():
         # print dict
 
         while True:
+            starttime = datetime.datetime.now()
+            hour = starttime.hour
+            minute = starttime.minute
+            second = starttime.second
+            print "hour,%d"%hour
+            print "minute,%d"%minute
+            print "second,%d"%second
+            print hour == start_hour
+            print minute >= start_minute
+            print second >= start_second
+            if hour == start_hour and  minute >= start_minute and second >= start_second:
+                break
+            time.sleep(1)
+
+        while True:
             endtime = datetime.datetime.now()
             print (endtime - starttime).seconds
             if (endtime - starttime).seconds>=3600:
                 return ' '
-            dict = api_GetDateInfo(url,year,month,cookie_file,referer_url,proxy)
+            try:
+                dict = api_GetDateInfo(url,year,month,cookie_file,referer_url,proxy)
+            except:
+                print "getdateinfo_time_out"
+                continue
             if day in dict.keys():
                 if isinstance(dict[day], list):
                     content = dict[day]
                     if content[0] == 1:
+                        print "当日已挂满"
                         continue
                     elif content[0] == 2:
                         spider_url = content[1]
@@ -218,8 +247,10 @@ def auto_guaho():
                 if detail_elem[06].split('.')[0] == feiyong and detail_elem[07].split('、')[0]== goodat and (detail_elem[10] == '预约挂号' or detail_elem[9] <> '0'):
                     spider_url = detail_elem[11]
                     is_flag =  True
+                    print "获取到医生url"
                     break
                 else:
+                    # print "获取不到医生url"
                     continue
             if is_flag:
                 break
