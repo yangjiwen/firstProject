@@ -146,21 +146,15 @@ def cancel(iden_code,offi_hos_id,cookie_file,proxy):
 
 def auto_guaho():
     hpid=122
-    # keid='%c6%a2%ce%b8%b2%a1%c3%c5%d5%ef'
     keid = '110501'
-    # hpid = '108'
-    # keid = '%B8%DF%D1%AA%D1%B9%BF%C6'
     year = '2015'
     month = '08'
-    day = 18
-    # feiyong = '14'
-    # goodat = '萎缩性胃炎'
-    # keid = '11050111'
-    # hpid=12222
-    feiyong = '5'
-    goodat = ''
-    start_hour = 11
-    start_minute = 4
+    day = 03
+    feiyong = '14'
+    goodat = '萎缩性胃炎'
+
+    start_hour = 9
+    start_minute = 14
     start_second = 50
 
 
