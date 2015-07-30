@@ -159,7 +159,7 @@ def auto_guaho():
     # hpid=12222
     feiyong = '5'
     goodat = ''
-    start_hour = 10
+    start_hour = 11
     start_minute = 4
     start_second = 50
 
