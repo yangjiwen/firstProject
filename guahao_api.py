@@ -277,6 +277,8 @@ def auto_guaho():
             if response.replace("\n","") == '已发送短信验证码':
                 is_sms_flag =  True
             if is_sms_flag:
+                endtime = datetime.datetime.now()
+                print "start_to_sms_send_second,%d"%(endtime - starttime).seconds
                 break
 
         while True:
@@ -291,6 +293,10 @@ def auto_guaho():
             # proxy = False
             guahao_info = api_confirm_post(cookie_file,referer_url,data,hidden_data,proxy)
             print guahao_info
+            endtime = datetime.datetime.now()
+            print "total_second,%d"%(endtime - starttime).seconds
+            if (endtime - starttime).seconds>=3600:
+                break
 
             if isinstance(guahao_info, dict):
                 is_post_flag = True
@@ -318,10 +324,6 @@ def auto_guaho():
                 print response
 
 
-        endtime = datetime.datetime.now()
-        print (endtime - starttime).seconds
-        if (endtime - starttime).seconds>=3600:
-            break
 
 
 if __name__ == '__main__':
