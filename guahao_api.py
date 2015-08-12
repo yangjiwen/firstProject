@@ -157,11 +157,11 @@ def auto_guaho():
     start_minute = 14
     start_second = 50
 
-    goodat = ''
-    start_hour = 15
-    month = '09'
-    day = 01
-    feiyong = '5'
+    # goodat = ''
+    # start_hour = 15
+    # month = '09'
+    # day = 01
+    # feiyong = '5'
 
 
 
