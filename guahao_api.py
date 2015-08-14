@@ -157,11 +157,11 @@ def auto_guaho():
     start_minute = 14
     start_second = 50
 
-    # goodat = ''
-    # start_hour = 15
-    # month = '09'
-    # day = 01
-    # feiyong = '5'
+    goodat = ''
+    start_hour = 20
+    month = '09'
+    day = 07
+    feiyong = '5'
 
 
 
@@ -237,7 +237,8 @@ def auto_guaho():
             except:
                 continue
             # print detail
-            for detail_elem in detail:
+
+            for detail_elem in detail[::-1]:
                 print detail_elem[06].split('.')[0]
                 print detail_elem[07]
                 print detail_elem[07].split('、')[0]
