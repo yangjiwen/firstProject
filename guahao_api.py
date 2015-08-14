@@ -149,7 +149,7 @@ def auto_guaho():
     keid = '110501'
     year = '2015'
     month = '08'
-    day = 17
+    day = 18
     feiyong = '14'
     goodat = '萎缩性胃炎'
 
@@ -157,11 +157,11 @@ def auto_guaho():
     start_minute = 14
     start_second = 50
 
-    goodat = ''
-    start_hour = 20
-    month = '09'
-    day = 07
-    feiyong = '5'
+    # goodat = ''
+    # start_hour = 20
+    # month = '09'
+    # day = 07
+    # feiyong = '5'
 
 
 
