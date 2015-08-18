@@ -149,12 +149,12 @@ def auto_guaho():
     keid = '110501'
     year = '2015'
     month = '08'
-    day = 21
+    day = 24
     feiyong = '14'
     goodat = '萎缩性胃炎'
 
     start_hour = 9
-    start_minute = 10
+    start_minute = 12
     start_second = 50
 
     # goodat = ''
