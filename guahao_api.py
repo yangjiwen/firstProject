@@ -158,9 +158,11 @@ def auto_guaho():
     start_second = 50
 
     # goodat = ''
-    # start_hour = 20
+    # start_hour = 11
+    # start_minute = 00
+    # start_second = 10
     # month = '09'
-    # day = 07
+    # day = 21
     # feiyong = '5'
 
 
@@ -170,6 +172,7 @@ def auto_guaho():
         cookie_file = 'cookie.txt'
         try:
             login_info = api_login('刘美莲','352224196811052527',cookie_file,'login_code_img.gif',proxy)
+            # login_info = api_login('杨继文','352203198907130558',cookie_file,'login_code_img.gif',proxy)
             print login_info
         except:
             print "login_time_out"
@@ -214,6 +217,7 @@ def auto_guaho():
                     elif content[0] == 2:
                         spider_url = content[1]
                         print "可以预约挂号！"
+                        print datetime.datetime.now()
                         break
                 else:
                     print "不是list类型"
@@ -250,6 +254,7 @@ def auto_guaho():
                     spider_url = detail_elem[11]
                     is_flag =  True
                     print "获取到医生url"
+                    print datetime.datetime.now()
                     break
                 else:
                     # print "获取不到医生url"
@@ -278,6 +283,7 @@ def auto_guaho():
             print response
             if response.replace("\n","") == '已发送短信验证码':
                 is_sms_flag =  True
+                print datetime.datetime.now()
             if is_sms_flag:
                 endtime = datetime.datetime.now()
                 print "start_to_sms_send_second,%d"%(endtime - starttime).seconds
@@ -292,9 +298,12 @@ def auto_guaho():
             data["baoxiao"] = '0'
             sms_code = raw_input()
             data["sms_code"] = sms_code
+            print "sms_code_type"
+            print datetime.datetime.now()
             # proxy = False
             guahao_info = api_confirm_post(cookie_file,referer_url,data,hidden_data,proxy)
             print guahao_info
+            print datetime.datetime.now()
             endtime = datetime.datetime.now()
             print "total_second,%d"%(endtime - starttime).seconds
             if (endtime - starttime).seconds>=3600:
