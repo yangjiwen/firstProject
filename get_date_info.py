@@ -27,7 +27,7 @@ def spider_date_info(url,year,month,cookie_file,referer_url,proxy):
 	#ch.setopt(ch.VERBOSE, 1)		#查看http信息
 	ch.setopt(ch.FOLLOWLOCATION, 1)
 	ch.setopt(ch.HTTPHEADER, header)
-	ch.setopt(ch.TIMEOUT,2)
+	ch.setopt(ch.TIMEOUT,1)
 	ch.setopt(ch.WRITEFUNCTION, buffer_con.write)
 	ch.setopt(ch.COOKIEFILE, cookie_file)
 	ch.setopt(ch.COOKIEJAR, cookie_file)	#保存ｃｏｏｋｉｅ
